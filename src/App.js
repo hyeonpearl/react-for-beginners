@@ -22,7 +22,7 @@ function App() {
   }, []);
   return (
     <div>
-      <h1>The coins!{loading ? '' : `Here are..${coins.length} coins`}</h1>
+      <h1>Coin Tracker {loading ? '' : `(${coins.length})`}</h1>
       {loading ? (
         <strong>loading...</strong>
       ) : (
@@ -35,22 +35,22 @@ function App() {
               id={coin.symbol}
               symbol={coin.symbol}
             >
-              {coin.name}({coin.symbol}) : ${coin.quotes.USD.price} USD
+              {coin.name} ({coin.symbol}) : ${coin.quotes.USD.price} USD
             </option>
           ))}
         </select>
       )}
-      <h2>Please enter the amount</h2>
+      <h2>Please enter the amount.</h2>
       <div>
+        <span>$ </span>
         <input
           type='number'
           value={need}
           onChange={handleInput}
-          placeholder='dollor'
+          placeholder='Enter the USD'
         />
-        $
       </div>
-      <h2>You can get {need / cost}</h2>
+      <h2>You can get {need / cost} coin.</h2>
     </div>
   );
 }
